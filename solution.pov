@@ -122,7 +122,7 @@ light_source {
 }
 
 #declare boxBottomSemiSphere = box {
-        <-2, 0, -2>, <2, 0.01, 2>
+        <-2, -0.5, -2>, <2, -0.15, 2>
     pigment { 
        color White // <red, green, blue, filter, transmit>
     }
