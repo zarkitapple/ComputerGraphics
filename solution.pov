@@ -9,7 +9,7 @@
 }
 
 #declare cameraRotatedLeft = camera {
-    location <-4, 4, -10> // <x, y, z>
+    location <-4, 3, -10> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
     look_at  <0, 0,  0> // <x, y, z>
 }
@@ -81,7 +81,7 @@ light_source {
 }
 
 #declare boxSemiSphere = box {
-        <-2, 2, -2>, <2, 4, 2>
+        <-2, 1.668, -2>, <2, 4, 2>
     pigment { 
        color White // <red, green, blue, filter, transmit>
     }
@@ -101,18 +101,39 @@ light_source {
     }
 } 
 #declare upperBorder = torus {
-    1.95, 0.05 // major radius, minor radius
+    1.921, 0.05 // major radius, minor radius
    pigment { 
       color  White // <red, green, blue, filter, transmit>
     }
     finish {
         porcelainFinish
     }
-    translate <0,2,0>
+    translate <0,1.668,0>
 }
 
-#declare bowl =  
-    union {
+#declare bottom = sphere {
+    <0, -0.3, 0>, 1// <x, y, z>, radius
+    pigment { 
+      color  White // <red, green, blue, filter, transmit>
+    }
+    finish {
+        porcelainFinish
+    }
+}
+
+#declare boxBottomSemiSphere = box {
+        <-2, 0, -2>, <2, 0.01, 2>
+    pigment { 
+       color White // <red, green, blue, filter, transmit>
+    }
+    finish {
+        porcelainFinish
+    }
+  
+}
+
+#declare bowl = 
+     union {
          difference {
             object {
                 sphereRed
@@ -122,15 +143,32 @@ light_source {
             }
             object {
                 sphereBlue
-            }   
+            }
         }
         object {
             upperBorder
         }
+        difference {
+            difference {
+                object {
+                    bottom
+                }
+                object {
+                    boxBottomSemiSphere
+                }
+            }
+            
+            object {
+                sphereBlue
+            }
     }
+    }
+      
+   
    
 object {
     bowl
+    translate <0,0.25,0>
 }   
 
 
