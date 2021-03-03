@@ -6,7 +6,7 @@
     location <0, 1, -5> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
     look_at  <0, 0,  0> // <x, y, z>
-    rotate x*45
+    rotate x*90
 }
 
 #declare cameraRotatedLeft = camera {
@@ -38,7 +38,7 @@
 }
 
 camera {
-    cameraFront  
+    cameraTopDown  
 }
 light_source {
     lightLeft

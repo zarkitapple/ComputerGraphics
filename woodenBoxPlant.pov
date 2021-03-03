@@ -5,10 +5,6 @@
 
 #declare mikado = cylinder {
     <0, 0, 0>, <0, 4.5, 0>, 0.02 // center of one end, center of other end, radius
-    pigment { 
-        color Green // <red, green, blue, filter, transmit>
-    }
-    
 }
 
 
@@ -35,20 +31,15 @@
     }
     finish {
         reflection 0.3
-        phong 250
-        roughness 0.7
+        phong 150
+        roughness 0.1
     }
 }
 
 #declare glassCenterLiquid = cylinder {
-    <0, -0.6, 0>, <0, 0.6, 0>, 0.39 // <x, y, z>, radius
+    <0, -0.6, 0>, <0, -0.5, 0>, 0.38 // <x, y, z>, radius
     pigment {
-        color <1,1,1, 1>
-    }
-    finish {
-        reflection 0.3
-        phong 250
-        roughness 0.7
+        color <0.3, 0.8, 0.5, 0.8>
     }
 }
 
@@ -72,28 +63,28 @@
 #declare outer = cylinder {
     <0,  0.6, 0>, <0, 0.72, 0>, 0.19 // center of one end, center of other end, radius
     pigment {
-        color <1,1,1, 1>
+        color <0.3,0.3,0.3, 0.95>
     }
     finish {
-        ambient 0.1
-        diffuse 0.1
+        ambient 1
+        diffuse 1
         reflection 0.1
-        phong 250
-        roughness 0.7
+        phong 150
+        roughness 0.1
     }
 }
 #declare inner = cylinder {
     <0, 0.6, 0>, <0, 0.72, 0>, 0.13 // center of one end, center of other end, radius
     open // remove end caps
     pigment {
-        color <1,1,1, 1>
+        color <0.3,0.3,0.3, 0.95>
     }
     finish {
-        ambient 0.1
-        diffuse 0.1
+        ambient 1
+        diffuse 1
         reflection 0.1
-        phong 250
-        roughness 0.7
+        phong 150
+        roughness 0.1
     }
 }
 
@@ -110,9 +101,15 @@
 
 #declare glassContainer = 
     union {
-        object {
-            glassCenter
+        union {
+            object {
+                glassCenter
             }
+            object {
+                glassCenterLiquid
+            }
+        }
+        
         object {
             topOpening
         }
@@ -140,7 +137,27 @@
         }
         object {
             mikado
-        
+             pigment { 
+        color Red // <red, green, blue, filter, transmit>
+    }
+            rotate z*14
+            translate <0.36,0,0.1>
+        }
+        object {
+            mikado
+             pigment { 
+        color Green // <red, green, blue, filter, transmit>
+    }
+            translate <-0.36,0,-0.1>
+            rotate z*-14
+        }
+        object {
+            mikado
+             pigment { 
+        color Yellow // <red, green, blue, filter, transmit>
+    }
+             translate <-0.1,0,-0.1>
+            rotate z*-4
         }
       
       
