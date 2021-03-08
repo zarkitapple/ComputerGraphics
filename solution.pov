@@ -1,7 +1,7 @@
 #include "colors.inc" 
 #include "porcelainCup.pov"
 #include "woodenBoxPlant.pov"
-
+#include "glassSphere.pov"
 #declare cameraTopDown = camera {
     location <0, 1, -5> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
@@ -10,13 +10,19 @@
 }
 
 #declare cameraRotatedLeft = camera {
-    location <-4, 3, -5> // <x, y, z>
+    location <-4, 3, -15> // <x, y, z>
+    right     x*image_width/image_height // keep propotions regardless of aspect ratio
+    look_at  <0, 0,  0> // <x, y, z>
+}
+
+#declare cameraRotatedLeft = camera {
+    location <4, 4, -5> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
     look_at  <0, 0,  0> // <x, y, z>
 }
 
 #declare cameraFront = camera {
-    location <0, 1, -8> // <x, y, z>
+    location <0, 4, -8> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
     look_at  <0, 0,  0> // <x, y, z>
 }
@@ -38,26 +44,12 @@
 }
 
 camera {
-    cameraTopDown  
+    cameraFront  
 }
 light_source {
     lightLeft
 }
  global_settings { ambient_light White }
-//Ref
-
-/* cylinder {
-  <0, 0, 0>, <0, 0, 100>, 0.1
-  pigment {color Red}
-}
-cylinder {
-  <0, 0, 0>, <0, 100, 0>, 0.1
-  pigment {color Blue}
-}
-cylinder {
-  <0, 0, 0>, <100, 0, 0>, 0.1
-  pigment {color Green}
-} */
 
 plane {
   y, 0 // perpendicular to axis, offset
@@ -69,8 +61,7 @@ plane {
 
 
 object {
-    woodenBoxPlant
-    translate <0,0.75,0>
-    rotate y*-90
+    glassSphere
+    translate <0,2,0>
 }   
 

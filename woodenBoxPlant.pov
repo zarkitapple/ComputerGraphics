@@ -115,49 +115,50 @@
         }
     }
 
-#declare woodenBoxPlant =
-        union {
-            difference {
-                object {
-                    containerWood
-                } 
-                object {
-                    centerHole
-                }
-                object {
-                    glassCenterHole
-                }
-                object {
-                    glassTopHole
-                }    
+#declare woodenBoxPlant = 
+    union {
+        difference {
+            object {
+                containerWood
+            } 
+            object {
+                centerHole
             }
             object {
-                glassContainer
+                glassCenterHole
             }
+            object {
+                glassTopHole
+            }    
+        }
+        object {
+            glassContainer
         }
         object {
             mikado
-             pigment { 
-        color Red // <red, green, blue, filter, transmit>
-    }
+            pigment { 
+                color Red // <red, green, blue, filter, transmit>
+            }
             rotate z*14
             translate <0.36,0,0.1>
         }
         object {
             mikado
-             pigment { 
-        color Green // <red, green, blue, filter, transmit>
-    }
+            pigment { 
+                color Green // <red, green, blue, filter, transmit>
+            }
             translate <-0.36,0,-0.1>
             rotate z*-14
         }
         object {
             mikado
-             pigment { 
-        color Yellow // <red, green, blue, filter, transmit>
-    }
-             translate <-0.1,0,-0.1>
+            pigment { 
+                color Yellow // <red, green, blue, filter, transmit>
+            }
+            translate <-0.1,0,-0.1>
             rotate z*-4
         }
+    }
+      
       
       
