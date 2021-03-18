@@ -13,8 +13,8 @@
             0.3, 1
             fresnel on
         }
-        brilliance 100
-		specular 50          
+        brilliance 10
+		specular 10          
 		roughness 0.001
 		conserve_energy
         
@@ -110,4 +110,4 @@
         }
         drawSpheres()
         drawSpheresSmall()
-}
+    }

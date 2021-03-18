@@ -32,7 +32,7 @@
         <-2, -0.5, -2>, <2, -0.15, 2>
 }
 
-#declare bowl = 
+#declare porcelainCup = 
      union {
          difference {
             object {

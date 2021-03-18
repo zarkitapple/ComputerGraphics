@@ -3,30 +3,31 @@
 #include "woodenBoxPlant.pov"
 #include "glassSphere.pov"
 #include "glassStructure.pov"
-#declare cameraTopDown = camera {
-    location <0, 0, -7> // <x, y, z>
+
+#declare cameraTop = camera {
+    location <0, 0, -10> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
     look_at  <0, 0,  0> // <x, y, z>
-    rotate x*50
-}
+    rotate <88,0,9>
 
-#declare cameraRotatedLeft = camera {
-    location <-4, 6, -7> // <x, y, z>
-    right     x*image_width/image_height // keep propotions regardless of aspect ratio
-    look_at  <0, 0,  0> // <x, y, z>
 }
-
-#declare cameraFront = camera {
+#declare cameraFrontFront = camera {
     location <0, 1, -8> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
     look_at  <0, 0,  0> // <x, y, z>
 }
 
+#declare cameraFront = camera {
+    location <0.5, 3.5, -8> // <x, y, z>
+    right     x*image_width/image_height // keep propotions regardless of aspect ratio
+    look_at  <0, 0,  0> // <x, y, z>
+}
 
 
 #declare lightBackTop =  light_source {
-    <2, 10, 10> // <x, y, z>
+    <0.5, 4.5, 10> // <x, y, z>
    White // <red, green, blue>
+   parallel
    photons {
         refraction on
         reflection on
@@ -52,16 +53,16 @@
 }
 
 camera {
-    cameraTopDown
+    cameraFrontFront
 }
 light_source {
     lightBackTop
 }
- //global_settings { ambient_light White }
+
 plane {
   y, 0 // perpendicular to axis, offset
     pigment {
-         color White
+         color Green
     }
     finish {
         diffuse 1
@@ -69,6 +70,27 @@ plane {
 }
 
 object {
-  glassStructure
-    translate <0,0,0>
-}  
+    glassSphere
+    scale 0.40
+    translate <-1.7, 0.7, -1.6>
+}
+
+object {
+    glassStructure
+    scale 0.9
+    translate <-1.5, 0, 1.7>
+}
+
+object {
+    porcelainCup
+    scale 0.45
+    translate <1.2, 0, -2>
+}
+
+object {
+    woodenBoxPlant
+    scale 0.9
+    rotate y*275
+    translate <0, 0.68, 0.25>
+}   
+

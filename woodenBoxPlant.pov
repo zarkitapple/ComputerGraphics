@@ -4,7 +4,7 @@
 
 
 #declare mikado = cylinder {
-    <0, 0, 0>, <0, 4.5, 0>, 0.02 // center of one end, center of other end, radius
+    <0, 0, 0>, <0, 4, 0>, 0.022 // center of one end, center of other end, radius
 }
 
 
@@ -37,9 +37,12 @@
 }
 
 #declare glassCenterLiquid = cylinder {
-    <0, -0.6, 0>, <0, -0.5, 0>, 0.38 // <x, y, z>, radius
+    <0, -0.6, 0>, <0, -0.45, 0>, 0.38 // <x, y, z>, radius
     pigment {
-        color <0.3, 0.8, 0.5, 0.8>
+        color <0.05, 0.2, 0.05>
+    }
+    finish {
+        reflection 1.01
     }
 }
 
@@ -137,28 +140,34 @@
         object {
             mikado
             pigment { 
-                color Red // <red, green, blue, filter, transmit>
+                color <0.33, 0.43, 0.24> // <red, green, blue, filter, transmit>
             }
-            rotate z*14
-            translate <0.36,0,0.1>
+            rotate z*-9
+            rotate x*-10
+            
+            translate <-0.2, -0.5, 0.1>
+           
         }
         object {
             mikado
             pigment { 
-                color Green // <red, green, blue, filter, transmit>
+                color <0.33, 0.43, 0.24> // <red, green, blue, filter, transmit>
             }
-            translate <-0.36,0,-0.1>
-            rotate z*-14
+            
+            translate <-0.25, -0.5, -0.13>
+            rotate z*-13
+            rotate x*12
         }
         object {
             mikado
             pigment { 
-                color Yellow // <red, green, blue, filter, transmit>
+                color <0.33, 0.43, 0.24> // <red, green, blue, filter, transmit>
             }
-            translate <-0.1,0,-0.1>
-            rotate z*-4
+            rotate z*12
+            rotate x*14
+            translate <0.20, -0.5, -0.22>
+            
         }
     }
-      
       
       
