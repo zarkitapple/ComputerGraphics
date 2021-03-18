@@ -27,12 +27,23 @@
 #declare glassCenter = cylinder {
     <0, -0.6, 0>, <0, 0.6, 0>, 0.39 // <x, y, z>, radius
     pigment {
-        color <1,1,1, 1>
+        color <0.9,0.9,0.9, 0.99> filter 0.95
     }
     finish {
-        reflection 0.3
-        phong 150
-        roughness 0.1
+        reflection 0.05
+        phong 20
+        specular 1
+    }
+    interior {
+        ior 1.5
+        dispersion 1.01
+        caustics 
+        
+    }
+     photons {
+        target
+        refraction on
+        reflection on
     }
 }
 

@@ -91,26 +91,20 @@
             color <0.9,0.9,0.9,0.95> filter 0.95
         }
          normal {
-                bumps 0.2 scale 0.05
+                bumps 0.1 scale 0.04
             }
         finish {
             ambient 0.3
             diffuse 0.4
-            specular 5
-            reflection {
-                0, 1
-                fresnel on
-            }
-            brilliance 5
+            specular 10
+            reflection 0.3
+            brilliance 10
             roughness 0.01
-            conserve_energy
         }
         interior {
             ior 1.5
-            dispersion 1.02
-            caustics 100
-            fade_distance 5
-            fade_power 1001
+            dispersion 1.05
+            caustics 1000
         }
         photons {
             target

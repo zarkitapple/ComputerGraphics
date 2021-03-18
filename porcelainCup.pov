@@ -33,35 +33,21 @@
 }
 
 #declare porcelainCup = 
-     union {
-         difference {
-            object {
-                sphereRed
-            }
-            object {
-                boxSemiSphere
-            }
-            object {
-                sphereBlue
+    blob {
+        threshold 0.5
+        sphere {
+             <0, 2, 0>, 2, 1
+                   pigment { 
+            color Green // <red, green, blue, filter, transmit>
             }
         }
-        object {
-            upperBorder
+        sphere {
+           <0, 0.3, 0>, 1, 1.3
+           pigment { 
+      color Red // <red, green, blue, filter, transmit>
         }
-        difference {
-            difference {
-                object {
-                    bottom
-                }
-                object {
-                    boxBottomSemiSphere
-                }
-            }
-            
-            object {
-                sphereBlue
-            }
-    }
+        }
+        
      pigment { 
       color White // <red, green, blue, filter, transmit>
     }

@@ -3,27 +3,23 @@
 #declare bigSphere = sphere {
     <0, 0, 0>, 2
     pigment {
-        color <0.8, 0.4, 0.30, 1> filter 0.95 
+        color <0.4, 0.2, 0.15, 1> filter 0.95 
     }
     
     finish {
         ambient 0
-	    diffuse 0.1
-        reflection {
-            0.3, 1
-            fresnel on
-        }
-        brilliance 10
+	    diffuse 0.8
+	    refraction 1
+        reflection 0.05
+        brilliance 100
 		specular 10          
 		roughness 0.001
-		conserve_energy
         
     }
     interior {
         ior 1.5
-        caustics 100
-        fade_distance 5
-        fade_power 1001
+        caustics 0.8
+        dispersion 1.01
     }
     
 }
@@ -40,7 +36,7 @@
             sphere {
                 <dx, dy, dz>, dr// <x, y, z>, radius
                 pigment { 
-                    color <0.8, 0.4, 0.30, 1> transmit 0.9999
+                    color <0.8, 0.4, 0.3, 1> transmit 0.9999
                 }
                 finish {
             		specular 100
@@ -51,7 +47,7 @@
                         0.2, 1
                         fresnel on
                     }
-                    brilliance 5
+                    brilliance 20
                 }
                 interior {
                     ior 1.1

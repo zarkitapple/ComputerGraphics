@@ -18,7 +18,7 @@
 }
 
 #declare cameraFront = camera {
-    location <0.5, 3.5, -8> // <x, y, z>
+   location <0.5, 3.5, -8> // <x, y, z>
     right     x*image_width/image_height // keep propotions regardless of aspect ratio
     look_at  <0, 0,  0> // <x, y, z>
 }
@@ -53,7 +53,7 @@
 }
 
 camera {
-    cameraFrontFront
+    cameraFront
 }
 light_source {
     lightBackTop
@@ -62,11 +62,13 @@ light_source {
 plane {
   y, 0 // perpendicular to axis, offset
     pigment {
-         color Green
+         color White
     }
     finish {
         diffuse 1
+
     }
+   
 }
 
 object {
@@ -77,15 +79,15 @@ object {
 
 object {
     glassStructure
-    scale 0.9
+    scale 0.85
     translate <-1.5, 0, 1.7>
 }
 
-object {
+/* object {
     porcelainCup
     scale 0.45
     translate <1.2, 0, -2>
-}
+} */
 
 object {
     woodenBoxPlant
